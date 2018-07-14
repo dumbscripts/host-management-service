@@ -14,16 +14,14 @@ function execCmd(cmd) {
 }
 
 function cleanTmpDir() {
-    fs.readdir(TMP_PATH, (err, files) => {
-        if (err) throw err;
-
+    try {
+        let files = fs.readdirSync(TMP_PATH)
         for (let file of files) {
-            fs.unlink(TMP_PATH, file), err => {
-                if (err) throw err;
-            };
+            fs.unlinkSync(`TMP_PATH/${file}`)
         }
-    });
-    return this;
+    } catch (err) {
+        console.error(err);
+    }
 }
 
 function copyTemplateFilesTotmp() {
@@ -37,13 +35,11 @@ function copyTemplateFilesTotmp() {
 }
 
 function createTerraformVariablesFile(vars) {
-    if (!validator.isJSON(vars)){
-        throw Error (`invalid json obj passed! - ${vars}`);
+    if (!validator.isJSON(vars)) {
+        throw Error(`invalid json obj passed! - ${vars}`);
     }
     try {
-        fs.createFile(`TMP_PATH/terraform.tfvars`, vars, (err) => {
-            console.error(err);
-        })
+        fs.fs.writeFileSync(`TMP_PATH/terraform.tfvars`, JSON.stringify(vars,null,4));
     } catch (err) {
         console.error(err)
     }

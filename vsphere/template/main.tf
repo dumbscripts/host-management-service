@@ -23,5 +23,4 @@ resource "vsphere_virtual_machine" "VM_01" {
     label = "VM Network"
   }
 
-
 }
