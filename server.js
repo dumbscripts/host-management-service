@@ -2,7 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const appRouter = require('./api/app');
+const router = require('./api/routes/hm-route');
 const config = require('./config/config');
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.use('/pdp/api/', appRouter);
+app.use('/pdp/api/host', router);
 
 app.listen(PORT, () => {
   logger.info(`listening on port ${PORT}..`)
