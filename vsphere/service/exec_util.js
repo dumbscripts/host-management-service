@@ -39,7 +39,7 @@ function createTerraformVariablesFile(vars) {
         throw Error(`invalid json obj passed! - ${vars}`);
     }
     try {
-        fs.fs.writeFileSync(`TMP_PATH/terraform.tfvars`, JSON.stringify(vars,null,4));
+        fs.writeFileSync(`TMP_PATH/terraform.tfvars`, JSON.stringify(vars,null,4));
     } catch (err) {
         console.error(err)
     }
