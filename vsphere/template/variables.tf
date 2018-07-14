@@ -23,7 +23,7 @@ variable "vm_name" {
 
 variable vm_cpu {
     type = "string"
-    default = "4"
+    default = "2"
 }
 
 variable vm_memory {

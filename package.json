@@ -2,13 +2,14 @@
   "name": "host-management-service",
   "version": "1.0.0",
   "description": "pdp service for host management",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mahesh Hadimani",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
     "fs-extra": "^6.0.1",
     "validator": "^10.4.0"
   }

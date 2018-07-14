@@ -46,3 +46,5 @@ Terraform4Vsphere.prototype.deletVM = function() {
 Terraform4Vsphere.prototype.getOutputs = function(param) {
     return spawnSync(`terraform output ${param}`);
 }
+
+module.exports = { Terraform4Vsphere }
