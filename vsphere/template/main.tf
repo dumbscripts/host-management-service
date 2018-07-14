@@ -10,6 +10,7 @@ provider "vsphere" {
 # Build a VM
 resource "vsphere_virtual_machine" "VM_01" {
   name   = "${var.vm_name}"
+  hostname = "${var.vm_hostname}"
   num_cpus   = "${var.vm_cpu}"
   memory = "${var.vm_memory}"
 
@@ -17,7 +18,9 @@ resource "vsphere_virtual_machine" "VM_01" {
 
   datastore_id {}
 
-  disk {}
+  disk {
+    template = ""
+    thin_provisioned = true
 
   network_interface {
     label = "VM Network"

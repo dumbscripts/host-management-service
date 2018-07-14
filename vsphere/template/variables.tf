@@ -13,6 +13,10 @@ variable "vm_host" {
     type = "string"
 }
 
+variable "vm_hostname" {
+    type = "string"
+}
+
 variable "vm_name" {
     type = "string"
 }

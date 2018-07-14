@@ -31,3 +31,18 @@ Terraform4Vsphere.prototype.createVM = function(options){
     this.plan();
     this.apply();
 }
+
+Terraform4Vsphere.prototype.cloneVM = function(tfstateFile) {
+    eu.cleanTmpDir();
+    eu.copyTemplateFilesTotmp();
+    //explore
+    this.apply();
+}
+
+Terraform4Vsphere.prototype.deletVM = function() {
+
+}
+
+Terraform4Vsphere.prototype.getOutputs = function(param) {
+    return spawnSync(`terraform output ${param}`);
+}
