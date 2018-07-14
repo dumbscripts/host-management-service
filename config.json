@@ -1,0 +1,23 @@
+
+{
+    "DATABASE_NAME": "host_management",
+    "SECRET": "Xadhim83sda4dj!",
+    "ENV": {
+        "development": {
+            "PORT": 3001,
+            "MONGODB_URI": "mongodb://localhost:27017"
+        },
+        "test": {
+            "PORT": 3001,
+            "MONGODB_URI": "mongodb://localhost:27017"
+        }
+    },
+    "ENDPOINTS": {
+        "addhost": "http://localhost:8888/pdp/api/host/addhost",
+        "deletehost": "http://localhost:8888/pdp/api/host/deletehost",
+        "createvm": "http://localhost:8888/pdp/api/host/createvm",
+        "deletevm": "http://localhost:8888/pdp/api/host/deletevm",
+        "clonevm": "http://localhost:8888/pdp/api/host/clonevm"
+    }
+}
+
