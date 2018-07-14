@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const router = require('./api/routes/hm-route');
-const config = require('./config/config');
+const config = require('./config/config-reader');
 
 const app = express();
 
