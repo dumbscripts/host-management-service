@@ -8,7 +8,7 @@ function Terraform4Vsphere() {
 }
 
 Terraform4Vsphere.prototype.apply = function() {
-    let result = spawnSync("terraform apply -input=false tfplan -auto-approve");
+    let result = spawnSync('terraform', 'apply -input=false tfplan -auto-approve', {shell: true});
     
     console.log('error', result.error);
     console.log('stdout ', result.stdout);
@@ -16,7 +16,7 @@ Terraform4Vsphere.prototype.apply = function() {
 }
 
 Terraform4Vsphere.prototype.plan = function() {
-    let result = spawnSync("terraform plan -out=tfplan -input=false");
+    let result = spawnSync('terraform', 'plan -out=tfplan -input=false', {shell: true});
 
     console.log('error', result.error);
     console.log('stdout ', result.stdout);
@@ -44,7 +44,7 @@ Terraform4Vsphere.prototype.deletVM = function() {
 }
 
 Terraform4Vsphere.prototype.getOutputs = function(param) {
-    return spawnSync(`terraform output ${param}`);
+    return spawnSync('terraform', `output ${param}`, {shell: true});
 }
 
 module.exports = { Terraform4Vsphere }
